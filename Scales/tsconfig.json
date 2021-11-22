@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "es5", 
+      "module": "commonjs", // замена webpack, раньше работали на ES6 
+      "moduleResolution": "node", // говорит где искать импортированные файлы(если ./ то это наши файлы, если просто имя - ищется в nodemodules )
+      "sourceMap": true, //делает map файля для отладки в браузере
+      "emitDecoratorMetadata": true, 
+      "experimentalDecorators": true,
+      "removeComments": false, //коментарии из ts не удаляются и остаются в js
+      "noEmitOnError": true, // если была ошибка не генерировать js файл 
+      "noImplicitAny": true // нет неяного any (но не работает)
+    },
+    "include": [
+      "*.ts" //все файлы ts 
+    ]  
+  }
