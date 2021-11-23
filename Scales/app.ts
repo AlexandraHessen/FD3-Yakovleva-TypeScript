@@ -1,33 +1,33 @@
 class Scales{
 
-    productsArr:Array<Products>
+    ProductArr:Array<Product>
 
     constructor(){
-        this.productsArr=[];
+        this.ProductArr=[];
     }
 
-    add(_product:Products):void{
-        this.productsArr.push(_product)
+    add(_product:Product):void{
+        this.ProductArr.push(_product)
     }
 
     getSumScale():number{
         let sumScale:number=0
-        this.productsArr.forEach((product:Products)=>{
+        this.ProductArr.forEach((product:Product)=>{
              sumScale+=product.getScale()
         })
         return sumScale
     }
 
-    getNameList():string{
-        let nameList:string=''
-        this.productsArr.forEach((product:Products)=>{
-            nameList+=' '+product.getName()
+    getNameList():Array<string>{
+        let nameListArr:Array<string>=[]
+        this.ProductArr.forEach((product:Product)=>{
+            nameListArr.push(product.getName())
         })
-        return nameList
+        return nameListArr
     }
 }
 
-class Products{
+class Product{
 
     name:string;
     weight:number;
@@ -46,7 +46,7 @@ class Products{
     }
 }
 
-class Apple extends Products{
+class Apple extends Product{
 
     name:string="apple";
 
@@ -56,7 +56,7 @@ class Apple extends Products{
     }
 }
 
-class Tomato extends Products{
+class Tomato extends Product{
 
     name:string="tomato";
 
@@ -78,6 +78,6 @@ scalesProduct.add(tomato1);
 scalesProduct.add(tomato2);
 
 console.log("SumScale: "+scalesProduct.getSumScale())
-console.log("NameList:"+scalesProduct.getNameList())
+console.log("NameList: "+scalesProduct.getNameList())
 
 

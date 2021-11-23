@@ -15,39 +15,39 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Scales = /** @class */ (function () {
     function Scales() {
-        this.productsArr = [];
+        this.ProductArr = [];
     }
     Scales.prototype.add = function (_product) {
-        this.productsArr.push(_product);
+        this.ProductArr.push(_product);
     };
     Scales.prototype.getSumScale = function () {
         var sumScale = 0;
-        this.productsArr.forEach(function (product) {
+        this.ProductArr.forEach(function (product) {
             sumScale += product.getScale();
         });
         return sumScale;
     };
     Scales.prototype.getNameList = function () {
-        var nameList = '';
-        this.productsArr.forEach(function (product) {
-            nameList += ' ' + product.getName();
+        var nameListArr = [];
+        this.ProductArr.forEach(function (product) {
+            nameListArr.push(product.getName());
         });
-        return nameList;
+        return nameListArr;
     };
     return Scales;
 }());
-var Products = /** @class */ (function () {
-    function Products() {
+var Product = /** @class */ (function () {
+    function Product() {
         this.name = "";
         this.weight = 0;
     }
-    Products.prototype.getScale = function () {
+    Product.prototype.getScale = function () {
         return this.weight;
     };
-    Products.prototype.getName = function () {
+    Product.prototype.getName = function () {
         return this.name;
     };
-    return Products;
+    return Product;
 }());
 var Apple = /** @class */ (function (_super) {
     __extends(Apple, _super);
@@ -58,7 +58,7 @@ var Apple = /** @class */ (function (_super) {
         return _this;
     }
     return Apple;
-}(Products));
+}(Product));
 var Tomato = /** @class */ (function (_super) {
     __extends(Tomato, _super);
     function Tomato(_weight) {
@@ -68,7 +68,7 @@ var Tomato = /** @class */ (function (_super) {
         return _this;
     }
     return Tomato;
-}(Products));
+}(Product));
 var scalesProduct = new Scales();
 var apple1 = new Apple(950);
 var tomato1 = new Tomato(150);
@@ -77,5 +77,5 @@ scalesProduct.add(apple1);
 scalesProduct.add(tomato1);
 scalesProduct.add(tomato2);
 console.log("SumScale: " + scalesProduct.getSumScale());
-console.log("NameList:" + scalesProduct.getNameList());
+console.log("NameList: " + scalesProduct.getNameList());
 //# sourceMappingURL=app.js.map
